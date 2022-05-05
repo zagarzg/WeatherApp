@@ -12,6 +12,7 @@
             <div id="country" class="country">IN</div>
         </div>
     </nav>
+	<div class="forecast-container"></div>
 </main>
 
 <style>
@@ -58,5 +59,19 @@
 	.place-container .country{
 		font-size: 12px;
 		font-weight: 700;
+	}
+
+	.forecast-container {
+		height: 300px;
+		background: rgba(24,24,27,0.6);
+		position: fixed;
+		bottom: 0;
+		display: flex;
+		color:white;
+		width: 100%;
+		border-top: 5px solid rgb(255, 250, 119);;
+		align-items: center;
+		justify-content: center;
+		overflow-y: hidden;
 	}
 </style>
