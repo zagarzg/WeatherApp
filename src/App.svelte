@@ -1,30 +1,20 @@
 <script lang="ts">
-	export let name: string;
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+
 </main>
 
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
+
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+		display: flex;
+    	flex-direction: column;
+    	justify-content: center;
+    	background-image: url('/images/weather_bg.jpg');
+    	font-family: 'Poppins', sans-serif;
+		height: 100%;
+		width: 100%;
 	}
 </style>
