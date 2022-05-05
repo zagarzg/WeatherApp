@@ -12,6 +12,7 @@
             <div id="country" class="country">IN</div>
         </div>
     </nav>
+	<div class="details-container"></div>
 	<div class="forecast-container"></div>
 </main>
 
@@ -73,5 +74,10 @@
 		align-items: center;
 		justify-content: center;
 		overflow-y: hidden;
+	}
+
+	.details-container{
+		height: 100%;
+		width: 100%;
 	}
 </style>
