@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Day from './components/Day.svelte';
 </script>
 
 <main>
@@ -13,7 +14,9 @@
         </div>
     </nav>
 	<div class="details-container"></div>
-	<div class="forecast-container"></div>
+	<div class="forecast-container">
+		<Day></Day>
+	</div>
 </main>
 
 <style>
