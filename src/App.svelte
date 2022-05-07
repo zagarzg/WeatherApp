@@ -1,5 +1,13 @@
 <script lang="ts">
 	import Day from './components/Day.svelte';
+	import { onMount } from "svelte";
+	import { getWeatherData } from './services/forecastService';
+	import { apiData } from './store/store';
+
+	onMount(async() => {
+		await getWeatherData();
+	})
+
 </script>
 
 <main>
@@ -9,13 +17,17 @@
             WeatherApp
         </h1>
         <div class="place-container">
-            <div class="time-zone" id="time-zone">Asia/Kolkata</div>
+            <div class="time-zone" id="time-zone">{$apiData.timezone}</div>
             <div id="country" class="country">IN</div>
         </div>
     </nav>
 	<div class="details-container"></div>
 	<div class="forecast-container">
-		<Day></Day>
+		{#if $apiData}
+			{#each $apiData.daily as day}
+				<Day dayForecast={day}></Day>
+			{/each}
+		{/if}
 	</div>
 </main>
 
