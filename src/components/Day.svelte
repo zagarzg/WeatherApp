@@ -1,8 +1,8 @@
 <script lang="ts">
-import type { Day } from "../models/DailyForecast";
-export let dayForecast: Day;
+import type { DailyForecast } from "../models/DailyForecast";
+export let dayForecast: DailyForecast;
 
-function getDayName(forecast: Day) {
+function getDayName(forecast: DailyForecast) {
     const dayOfWeek = new Date(forecast.dt*1000);
     return dayOfWeek.toLocaleString('en-us', {  weekday: 'long' });
 }
