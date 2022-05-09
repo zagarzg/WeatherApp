@@ -3,7 +3,7 @@ import type { WeatherDetails } from "./WeatherDetails";
 export interface CurrentWeather {
     clouds: number,
     dew_point: number,
-    dt: string,
+    dt: number,
     feels_like: number,
     humidity: number,
     pressure: number,

@@ -3,6 +3,7 @@
 	import { onMount } from "svelte";
 	import { getWeatherData } from './services/forecastService';
 	import { apiData } from './store/store';
+	import CurrentForecast from './components/CurrentForecast.svelte';
 
 	onMount(async() => {
 		await getWeatherData();
@@ -21,7 +22,11 @@
             <div id="country" class="country">IN</div>
         </div>
     </nav>
-	<div class="details-container"></div>
+	<div class="details-container">
+		{#if $apiData}
+			<CurrentForecast currentForecast={$apiData.current}></CurrentForecast>
+		{/if}
+	</div>
 	<div class="forecast-container">
 		{#if $apiData}
 			{#each $apiData.daily as day}
@@ -61,6 +66,12 @@
 		margin: 20px;
 	}
 
+	.details-container{
+		padding: 20px 70px;
+		color:#fff;
+		width: 100%;
+	}
+
 	.place-container{
 		text-align: end;
 		color: #eee;
@@ -91,8 +102,4 @@
 		overflow-y: hidden;
 	}
 
-	.details-container{
-		height: 100%;
-		width: 100%;
-	}
 </style>

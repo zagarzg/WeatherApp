@@ -1,4 +1,5 @@
-export function getTime(date: Date = new Date()) {
+export function getTime(dateInUnix: number) {
+    let date = new Date(dateInUnix*1000);
     let dateString = date.toLocaleTimeString();
     let myArray = dateString.split(" ");
     const dateArray = dateString.split(":");
@@ -7,8 +8,8 @@ export function getTime(date: Date = new Date()) {
     return time;
 }
 
-export function getDate(dateInUTC: number){
-    let date = new Date(dateInUTC*1000)
+export function getDate(dateInUnix: number){
+    let date = new Date(dateInUnix*1000)
     let formatedDate = date.toLocaleDateString('en-us', { weekday: 'long', month: 'long', day: 'numeric'});
 
     return formatedDate;
