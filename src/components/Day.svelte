@@ -1,14 +1,15 @@
 <script lang="ts">
-import type { DailyForecast } from "../models/DailyForecast";
-export let dayForecast: DailyForecast;
+    import type { DailyForecast } from "../models/DailyForecast";
+    export let dayForecast: DailyForecast;
 
-function getDayName(forecast: DailyForecast) {
-    const dayOfWeek = new Date(forecast.dt*1000);
-    return dayOfWeek.toLocaleString('en-us', {  weekday: 'long' });
-}
+    function getDayName(forecast: DailyForecast) {
+        const dayOfWeek = new Date(forecast.dt*1000);
+        return dayOfWeek.toLocaleString('en-us', {  weekday: 'long' });
+    }
 
-const day = getDayName(dayForecast);
+    const day = getDayName(dayForecast);
 </script>
+
 {#if dayForecast}
 <div class="weather-forecast-item">
     <div class="day">{day}</div>
