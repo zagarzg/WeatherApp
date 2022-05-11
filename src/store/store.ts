@@ -20,6 +20,7 @@ export const apiData = writable<Forecast>({
         wind_speed: 0,
     },
     daily: [],
+    hourly: [],
     lat: 0,
     lon: 0,
     timezone: '',
