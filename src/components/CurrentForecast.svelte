@@ -22,6 +22,10 @@
 
         <div class="others" id="current-weather-items">
             <div class="weather-item">
+                <div class="temp"><img class="day-night" src="images/temperature.png" title="day icon" alt=icon>Temperature</div>
+                <div>{Math.round(currentForecast.temp)} °C</div>
+            </div>
+            <div class="weather-item">
                 <div class="temp"><img class="day-night" src="images/humidity.png" title="day icon" alt=icon>Humidity</div>
                 <div>{currentForecast.humidity} %</div>
             </div>
@@ -46,8 +50,6 @@
 </div>
     
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
-
     .current-info {
         display: flex;
         justify-content: space-between;
@@ -55,7 +57,12 @@
     }
     .date-container{
         font-weight: 100;
+        width: 250px;
     }
+    .date-container .date{
+        width: 300px;
+    }
+
     .date-container .time{
         font-size: 70px;
     }
@@ -78,7 +85,7 @@
         border: 1px solid #eee;
         font-size: 25px;
         font-weight: 200;
-        width: 130%;
+        width: 160%;
     }
 
     .current-info .others .weather-item{

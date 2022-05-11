@@ -11,21 +11,21 @@
 </script>
 
 {#if dayForecast}
-<div class="weather-forecast-item">
-    <div class="day">{day}</div>
-    <img src={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`} alt="weather icon" class="w-icon">
-    <div class="temp">
-        <img class="day-night" src="images/sun.png" title="day icon" alt="temp icon">
-        {Math.round(dayForecast.temp.day)}&#176; C</div>
-    <div class="temp">
-        <img class="day-night" src="images/night.png" title="day icon" alt="temp icon">
-        {Math.round(dayForecast.temp.night)}&#176; C</div>
-</div>
+    <div class="weather-forecast-item">
+        <div class="day">{day}</div>
+        <img src={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`} alt="weather icon" class="w-icon">
+        <div class="temp">
+            <img class="day-night" src="images/sun.png" title="day icon" alt="temp icon">
+            {Math.round(dayForecast.temp.day)}&#176; C
+        </div>
+        <div class="temp">
+            <img class="day-night" src="images/night.png" title="day icon" alt="temp icon">
+            {Math.round(dayForecast.temp.night)}&#176; C
+        </div>
+    </div>
 {/if}
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
-
 	.day-night {
         height: 30px;
         margin-right: 10px;
@@ -37,7 +37,6 @@
         align-items: center;
         justify-content: center;
         margin: 0 10px;
-        /* border: 3px solid rgb(255, 250, 119); */
         padding-bottom: 15px;
         border-radius: 10px;
         border-top-left-radius: 50px;
