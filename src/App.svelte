@@ -4,6 +4,7 @@
 	import { getWeatherData } from './services/forecastService';
 	import { apiData } from './store/store';
 	import CurrentForecast from './components/CurrentForecast.svelte';
+	import TemperatureChart from './components/TemperatureChart.svelte';
 
 	onMount(async() => {
 		await getWeatherData();
@@ -25,6 +26,7 @@
 	<div class="details-container">
 		{#if $apiData}
 			<CurrentForecast currentForecast={$apiData.current}></CurrentForecast>
+			<TemperatureChart hourlyForecast={$apiData.hourly}></TemperatureChart>
 		{/if}
 	</div>
 	<div class="forecast-container">
@@ -37,8 +39,6 @@
 </main>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700&display=swap');
-
 	main {
 		display: flex;
     	flex-direction: column;
@@ -67,9 +67,13 @@
 	}
 
 	.details-container{
-		padding: 20px 70px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 20px 100px;
 		color:#fff;
 		width: 100%;
+		height: 50%;
 	}
 
 	.place-container{
