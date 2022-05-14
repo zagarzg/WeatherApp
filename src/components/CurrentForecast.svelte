@@ -13,13 +13,17 @@
 
 <div class="current-info">
     <div class="date-container">
-        <div class="time" id="time">
-            {currentTime.value} <span id="am-pm">{currentTime.indicator}</span>
+        <img src={`http://openweathermap.org/img/wn/${currentForecast.weather[0].icon}@2x.png`} alt="weather icon" class="w-icon">
+        <div class="date-time">
+            <div class="time" id="time">
+                {currentTime.value} <span id="am-pm">{currentTime.indicator}</span>
+            </div>
+            <div class="date" id="date">
+                {currentDate}
+            </div>
         </div>
-        <div class="date" id="date">
-            {currentDate}
-        </div>
-
+    </div>
+    <div class="weather-details">
         <div class="others" id="current-weather-items">
             <div class="weather-item">
                 <div class="temp"><img class="day-night" src="images/temperature.png" title="day icon" alt=icon>Temperature</div>
@@ -50,14 +54,19 @@
 </div>
     
 <style>
+     .w-icon {
+        height: 150px;
+    }
+
     .current-info {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
     .date-container{
+        display: flex;
         font-weight: 100;
-        width: 250px;
+        width: 300px;
     }
     .date-container .date{
         width: 300px;
