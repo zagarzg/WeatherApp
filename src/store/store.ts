@@ -15,7 +15,12 @@ export const apiData = writable<Forecast>({
         temp: 0,
         uvi: 0,
         visibility: 0,
-        weather: [],
+        weather: [{
+            description: '',
+            icon: '',
+            id: 0,
+            main: 'string',
+        }],
         wind_deg: 0,
         wind_speed: 0,
     },
