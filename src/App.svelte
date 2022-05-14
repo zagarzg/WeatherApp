@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Day from './components/Day.svelte';
-	import { onMount } from "svelte";
+	import DayCard from './components/DayCard.svelte';
+	import { onDestroy, onMount } from "svelte";
 	import { getWeatherData } from './services/forecastService';
 	import { apiData } from './store/store';
 	import CurrentForecast from './components/CurrentForecast.svelte';
@@ -8,7 +8,7 @@
 
 	onMount(async() => {
 		await getWeatherData();
-	})
+	});
 
 </script>
 
@@ -19,20 +19,20 @@
             WeatherApp
         </h1>
         <div class="place-container">
+			<img class="location" src="images/white-location.png" title="location" alt="location">
             <div class="time-zone" id="time-zone">{$apiData.timezone}</div>
-            <div id="country" class="country">IN</div>
         </div>
     </nav>
 	<div class="details-container">
-		{#if $apiData}
-			<CurrentForecast currentForecast={$apiData.current}></CurrentForecast>
-			<TemperatureChart hourlyForecast={$apiData.hourly}></TemperatureChart>
-		{/if}
+		<CurrentForecast currentForecast={$apiData.current}></CurrentForecast>
+		<TemperatureChart hourlyForecast={$apiData.hourly}></TemperatureChart>
 	</div>
 	<div class="forecast-container">
-		{#if $apiData}
+		{#if $apiData.daily.length == 0}
+			<h1>Loading...</h1>
+		{:else}
 			{#each $apiData.daily as day}
-				<Day dayForecast={day}></Day>
+				<DayCard dayForecast={day}></DayCard>
 			{/each}
 		{/if}
 	</div>
@@ -66,6 +66,12 @@
 		margin: 20px;
 	}
 
+	.location {
+		height: 40px;
+		margin-right: 15px;
+		color: #eee;
+	}
+
 	.details-container{
 		display: flex;
 		align-items: center;
@@ -77,6 +83,9 @@
 	}
 
 	.place-container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		text-align: end;
 		color: #eee;
 		margin: 20px;
