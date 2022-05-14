@@ -10,20 +10,18 @@
     const day = getDayName(dayForecast);
 </script>
 
-{#if dayForecast}
-    <div class="weather-forecast-item">
-        <div class="day">{day}</div>
-        <img src={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`} alt="weather icon" class="w-icon">
-        <div class="temp">
-            <img class="day-night" src="images/sun.png" title="day icon" alt="temp icon">
-            {Math.round(dayForecast.temp.day)}&#176; C
-        </div>
-        <div class="temp">
-            <img class="day-night" src="images/night.png" title="day icon" alt="temp icon">
-            {Math.round(dayForecast.temp.night)}&#176; C
-        </div>
+<div class="weather-forecast-item">
+    <div class="day">{day}</div>
+    <img src={`http://openweathermap.org/img/wn/${dayForecast.weather[0].icon}@2x.png`} alt="weather icon" class="w-icon">
+    <div class="temp">
+        <img class="day-night" src="images/sun.png" title="day icon" alt="temp icon">
+        {Math.round(dayForecast.temp.day)}&#176; C
     </div>
-{/if}
+    <div class="temp">
+        <img class="day-night" src="images/night.png" title="day icon" alt="temp icon">
+        {Math.round(dayForecast.temp.night)}&#176; C
+    </div>
+</div>
 
 <style>
 	.day-night {
